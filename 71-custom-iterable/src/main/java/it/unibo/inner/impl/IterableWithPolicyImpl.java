@@ -29,8 +29,7 @@ public class IterableWithPolicyImpl<T> implements IterableWithPolicy<T> {
 
     @Override
     public void setIterationPolicy(Predicate<T> filter) {
-        
-        
+        this.filter = filter;
     }
 
     @Override
@@ -44,8 +43,11 @@ public class IterableWithPolicyImpl<T> implements IterableWithPolicy<T> {
 
         @Override
         public boolean hasNext() {
-            if (currIndex < elements.size()) {
-                return true;
+            while (currIndex < elements.size()) {
+                if(filter.test(elements.get(currIndex))) {
+                    return true;
+                }
+                currIndex++;
             }
             return false;
         }
