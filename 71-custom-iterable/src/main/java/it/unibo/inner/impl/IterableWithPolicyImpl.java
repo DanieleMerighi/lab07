@@ -15,10 +15,10 @@ public class IterableWithPolicyImpl<T> implements IterableWithPolicy<T> {
         this(elems,
         new Predicate<T>() {
             @Override
-            boolean test(T elem) {
+            public boolean test(T elem) {
                 return true;
             }
-        }; 
+        } 
         );
     }
 
