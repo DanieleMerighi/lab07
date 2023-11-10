@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import it.unibo.inner.api.IterableWithPolicy;
+import it.unibo.inner.api.Predicate;
 
 public class IterablePlainImpl<T> implements IterableWithPolicy<T> {
     private List<T> elements;
